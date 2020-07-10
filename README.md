@@ -10,13 +10,14 @@
 - [Create a new GitHub OAuth App](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/) so you can plug in your API keys.
 
 ### Modification
-- Modify `.env` file with your Github App ID/Secret/Callback URI
-- Modify `docker-compose.yml` with your mysql data path
+- Modify `.env` file with your Github App ID/Secret/Callback URI.
+- Modify `docker-compose.yml` with your mysql data path.
 
 ### Run
-- Run `docker-compose build up -d` to have your Astral dockerlized!
+- Run `docker-compose build` to build your Astral image.
+- Run `dokcer-compose up -d` to have your Astral service dockerlized!
 
 
 ### Note
 - My `docker-compose.yml` is configured to map `Caddy` port to 8180 on host so I can use my Nginx to proxy all request with HTTPS. You should modify it based on your demand.
-
+- You may delete all generated intermediate image with command `docker image prune`.
