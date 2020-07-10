@@ -1,0 +1,34 @@
+version: '2.2'
+services:
+  astral:
+    restart: always
+    depends_on:
+        astral_mysql:
+          condition: service_healthy
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: astral:version1
+    container_name: astral
+    ports:
+      - 8180:2015
+
+  astral_mysql:
+    restart: always
+    image: mysql:5.6
+    container_name: astral_mysql
+    expose:
+      - 3306
+    environment:
+        - MYSQL_ROOT_PASSWORD=astral
+        - MYSQL_DATABASE=astral
+        - MYSQL_USER=astral
+        - MYSQL_PASSWORD=astral
+    volumes:
+        - /home/vps/docker_data/astral/mysql:/var/lib/mysql
+    healthcheck:
+        test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+        timeout: 45s
+        interval: 10s
+        retries: 10
+
