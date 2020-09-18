@@ -7,7 +7,7 @@
 ## Installation
 
 ### Prerequisites
-- [Create a new GitHub OAuth App](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/) so you can plug in your API keys.
+- [Create a new GitHub OAuth App](https://docs.github.com/en/developers/apps/creating-an-oauth-app/) so you can plug in your API keys.
 
 ### Modification
 - Modify `.env` file with your Github App ID/Secret/Callback URI.
